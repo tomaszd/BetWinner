@@ -49,6 +49,19 @@ class ResultsParser():
             )
             self.teams.append(single_team_dict)
 
+        only_teams_names = [x["name"] for x in self.teams]
+        all_team_results = self.raw_data.find_all("table", {"class": "main2"})[1].find_all("tr")
+        for i, single_team_results in enumerate(all_team_results[1:]):
+            team_result_dict = {}
+            for j, single_result in enumerate(single_team_results.find_all("td")[2:]):
+                if single_result.text == '    ':
+                    team_result_dict[only_teams_names[j]]="N/A"
+                else:
+                    team_result_dict[only_teams_names[j]] = single_result.text.strip()
+            pass
+            self.teams[i]["results"] = team_result_dict
+        pass
+
     def getTeams(self):
         return self.teams
 
