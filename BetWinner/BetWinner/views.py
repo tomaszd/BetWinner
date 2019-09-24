@@ -19,4 +19,4 @@ def my_data_view(request):
     with open(data_path) as json_file:
         data = json.load(json_file)
     # just return a JsonResponse
-    return JsonResponse(data,safe=False)
+    return JsonResponse(data, safe=False)
