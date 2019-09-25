@@ -1,0 +1,11 @@
+Application is set on heroku
+
+to update - commit changes then
+git push heroku master
+
+
+to run heroku:
+
+heroku login
+
+heroku run python manage.py migrate
