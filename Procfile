@@ -1,1 +1,1 @@
-web: gunicorn Betwinner.wsgi --log-file -
+web: gunicorn wsgi --log-file -
